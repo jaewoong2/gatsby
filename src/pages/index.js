@@ -1,8 +1,9 @@
 import React from "react"
-import Layout from "../components/layout"
+// import Layout from "../components/layout"
 import styled from "styled-components"
 import { rhythm } from "../typography/typography"
 import { graphql, Link } from "gatsby"
+import NewLayout from "../components/NewLayout"
 
 const StyledHone = styled.h1`
         display: inline-block;
@@ -27,7 +28,7 @@ const StyledLink = styled(Link)`
 export default function Home({ data }) {
 
   return (
-    <Layout>
+    <NewLayout>
       {/* <h1>Amazing Pandas Eating Things</h1> */}
       <div>
         <StyledHone>
@@ -49,7 +50,7 @@ export default function Home({ data }) {
           </div>
         ))}
       </div>
-    </Layout>
+    </NewLayout>
   )
 }
 

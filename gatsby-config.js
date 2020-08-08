@@ -11,12 +11,17 @@ module.exports = {
       title : `Pandas Eating Lots`,
       description : `A simple description about pandas eating lots...`,
       author : `gatsby`,
+      imgae : `./src/images/woong.jpg`
     // },
   },
   // plugin
   plugins: [
   `gatsby-transformer-sharp`,
   `gatsby-plugin-sharp`,
+  { 
+    resolve: `gatsby-source-filesystem`,
+    options: { path: `./src/images/` }
+   },
     {
       resolve : `gatsby-plugin-manifest`,
       options : {
@@ -31,6 +36,17 @@ module.exports = {
         icon: `src/images/icon.png`, // This path is relative to the root of the site.
       }
     },
+    {
+      resolve : `gatsby-transformer-remark`,
+      options : {
+        plugins : [{
+          resolve : `gatsby-remark-images`,
+          options : {
+            maxWidth : 1000,
+          }
+        }]
+      }
+    },
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
     {
@@ -40,7 +56,7 @@ module.exports = {
         path: `${__dirname}/src/`,
       },
     },
-    `gatsby-transformer-remark`,
+
     `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-plugin-typography`,

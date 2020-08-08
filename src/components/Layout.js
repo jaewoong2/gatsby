@@ -11,19 +11,33 @@ import { useStaticQuery, graphql } from "gatsby"
 // `
 const WrapperDiv = styled.div`
         margin: 0 auto;
-        max-width: 700px;
-        padding: ${rhythm(2)};
-        padding-top: ${rhythm(1.5)};
+        max-width: 80%;
+        height : 100vh;
+        padding: 0;
+        margin-top : 10%;
+
+        .nav {
+          display : flex;
+          justify-content : center;
+        }
+
+        
+        .link{
+        &:hover {
+          border-bottom : 15px sold #777;
+        }
+      }
+
 `
 
 const StyledHThree = styled.h3`
-        margin-bottom: ${rhythm(2)};
-        display: inline-block;
+        font-size : 60px;
         font-style: normal;
+
 `
 
 const StyledLik = styled(Link)`
-          float: right;
+margin-bottom : 10px;
 `
 
 
@@ -45,7 +59,9 @@ const data = useStaticQuery(
     <React.Fragment>
       {/* <GlobalStyle theme="purple" /> */}
     <WrapperDiv>
-        <Link to='/'>
+      <div className="nav">
+        <div>
+        <Link className="link" to='/'>
             <StyledHThree>
             {data.site.siteMetadata.title}
             </StyledHThree>
@@ -53,6 +69,8 @@ const data = useStaticQuery(
         <StyledLik to="/about">
             About
         </StyledLik>
+        </div>
+      </div>
         {children}
     </WrapperDiv>
       {/* {children} */}
